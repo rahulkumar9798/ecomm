@@ -1,10 +1,11 @@
-package com.example.firebaseecommerce
+package com.example.firebaseecommerce.category
 
 import android.content.Context
 import android.content.Intent
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.example.firebaseecommerce.ProductModal
 import com.example.firebaseecommerce.databinding.ProductRowBinding
 import com.example.firebaseecommerce.productDetails.ProductDetailsActivity
 

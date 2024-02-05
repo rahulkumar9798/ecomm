@@ -1,4 +1,4 @@
-package com.example.firebaseecommerce
+package com.example.firebaseecommerce.cart
 
 data class CartModel(
 

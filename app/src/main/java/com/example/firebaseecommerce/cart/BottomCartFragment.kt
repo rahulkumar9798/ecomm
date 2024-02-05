@@ -1,17 +1,12 @@
-package com.example.firebaseecommerce.BottomNavigation
+package com.example.firebaseecommerce.cart
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.firebaseecommerce.CartModel
-import com.example.firebaseecommerce.ProductModal
 import com.example.firebaseecommerce.R
-import com.example.firebaseecommerce.RecyclerCartAdpater
-import com.example.firebaseecommerce.RecyclerProductAdpater
 import com.example.firebaseecommerce.databinding.FragmentBottomCartBinding
 
 class BottomCartFragment : Fragment() {

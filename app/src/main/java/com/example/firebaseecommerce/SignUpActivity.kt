@@ -13,6 +13,7 @@ import android.widget.ArrayAdapter
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import com.example.firebaseecommerce.databinding.ActivitySignUpBinding
+import com.example.firebaseecommerce.databinding.LoadingBinding
 import com.example.firebaseecommerce.databinding.UserImgUploadBinding
 import com.google.firebase.Firebase
 import com.google.firebase.auth.FirebaseAuth
@@ -189,6 +190,11 @@ class SignUpActivity : AppCompatActivity() {
 
 
         binding.btnSubmit.setOnClickListener {
+
+            val dialogAdd= Dialog(this)
+            val dialogBinding = LoadingBinding.inflate(layoutInflater)
+            dialogAdd.setContentView(dialogBinding.root)
+
             val name = binding.edtName.text.toString()
             val phnNo = binding.edtMob.text.toString()
             val email = binding.edtEmail.text.toString()
@@ -196,6 +202,13 @@ class SignUpActivity : AppCompatActivity() {
 
             val firestore = Firebase.firestore
 
+            val currTimeStamp = Calendar.getInstance().timeInMillis //
+
+
+            // 0-> Active,
+            // 1-> InActive,
+            // 2-> Pending,
+            // 3-> Block-
 
             val userMap = mapOf<String, Any>(
                 "profilePic" to profilepic,
@@ -204,9 +217,9 @@ class SignUpActivity : AppCompatActivity() {
                 "email" to email,
                 "pass" to pass,
                 "dob" to dob,
-                "gender" to gender
-
-
+                "gender" to gender,
+                "status" to 2,
+                "timeStamp" to currTimeStamp
             )
 
 
@@ -214,15 +227,17 @@ class SignUpActivity : AppCompatActivity() {
 
 
                 .addOnSuccessListener {
+                    val currTimeStamp = Calendar.getInstance().timeInMillis //
 
                     Log.d("uid", "${it.user!!.uid}")
 
                     firestore.collection("User")
-                        .document("${it.user!!.uid}")
+                        .document("$currTimeStamp")
                         .set(userMap)
                         .addOnSuccessListener {
 
                             Log.d("seccess", "UserAdded ${it}!!")
+                            dialogAdd.dismiss()
                             startActivity(Intent(this@SignUpActivity, UserLoginActivity::class.java))
                         }
 
@@ -237,7 +252,7 @@ class SignUpActivity : AppCompatActivity() {
                 }
 
 
-
+            dialogAdd.show()
         }
 
     }

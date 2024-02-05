@@ -1,4 +1,4 @@
-package com.example.firebaseecommerce
+package com.example.firebaseecommerce.category
 
 data class CategoryModal(
         val imgPath :Int,

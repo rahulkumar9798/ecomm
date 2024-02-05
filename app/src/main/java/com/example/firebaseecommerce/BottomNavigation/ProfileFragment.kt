@@ -161,8 +161,6 @@ class ProfileFragment : Fragment() {
 
 
 
-
-
                     firestore
                         .collection("User")
                         .document(userId)

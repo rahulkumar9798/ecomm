@@ -7,7 +7,7 @@ import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.Fragment
 import com.bumptech.glide.Glide
-import com.example.firebaseecommerce.BottomNavigation.BottomCartFragment
+import com.example.firebaseecommerce.cart.BottomCartFragment
 import com.example.firebaseecommerce.BottomNavigation.FavouriteFragment
 import com.example.firebaseecommerce.BottomNavigation.HomeFragment
 import com.example.firebaseecommerce.BottomNavigation.ProfileFragment

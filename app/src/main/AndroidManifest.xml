@@ -18,7 +18,7 @@
             android:name=".ForgotPassActivity"
             android:exported="false" />
         <activity
-            android:name=".CategoryPItemActivity"
+            android:name=".category.CategoryPItemActivity"
             android:exported="false" />
         <activity
             android:name=".productDetails.ProductDetailsActivity"

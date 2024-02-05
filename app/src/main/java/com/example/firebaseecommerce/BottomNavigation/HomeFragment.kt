@@ -4,16 +4,15 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.firebaseecommerce.CategoryModal
+import com.example.firebaseecommerce.category.CategoryModal
 import com.example.firebaseecommerce.ProductModal
 import com.example.firebaseecommerce.R
-import com.example.firebaseecommerce.RecyclerCategoryAdapter
-import com.example.firebaseecommerce.RecyclerProductAdpater
+import com.example.firebaseecommerce.category.RecyclerCategoryAdapter
+import com.example.firebaseecommerce.category.RecyclerProductAdpater
 import com.example.firebaseecommerce.databinding.FragmentHomeBinding
 
 class HomeFragment : Fragment() {

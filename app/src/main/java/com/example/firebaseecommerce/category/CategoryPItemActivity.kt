@@ -1,8 +1,10 @@
-package com.example.firebaseecommerce
+package com.example.firebaseecommerce.category
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.recyclerview.widget.GridLayoutManager
+import com.example.firebaseecommerce.ProductModal
+import com.example.firebaseecommerce.R
 import com.example.firebaseecommerce.databinding.ActivityCategoryPitemBinding
 
 class CategoryPItemActivity : AppCompatActivity() {

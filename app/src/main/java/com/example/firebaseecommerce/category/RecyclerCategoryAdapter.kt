@@ -1,4 +1,4 @@
-package com.example.firebaseecommerce
+package com.example.firebaseecommerce.category
 
 import android.content.Context
 import android.content.Intent
@@ -6,7 +6,6 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.firebaseecommerce.databinding.CategoryRowBinding
-import com.example.firebaseecommerce.productDetails.ProductDetailsActivity
 
 class RecyclerCategoryAdapter(val context: Context, val arrCatList:ArrayList<CategoryModal>) : RecyclerView.Adapter<RecyclerCategoryAdapter.ViewHolder>() {
     class ViewHolder (val binding: CategoryRowBinding): RecyclerView.ViewHolder(binding.root) {

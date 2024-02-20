@@ -195,6 +195,8 @@ class SignUpActivity : AppCompatActivity() {
             val dialogBinding = LoadingBinding.inflate(layoutInflater)
             dialogAdd.setContentView(dialogBinding.root)
 
+            dialogAdd.setCancelable(false)
+
             val name = binding.edtName.text.toString()
             val phnNo = binding.edtMob.text.toString()
             val email = binding.edtEmail.text.toString()
@@ -227,12 +229,12 @@ class SignUpActivity : AppCompatActivity() {
 
 
                 .addOnSuccessListener {
-                    val currTimeStamp = Calendar.getInstance().timeInMillis //
+                   // val currTimeStamp = Calendar.getInstance().timeInMillis //
 
                     Log.d("uid", "${it.user!!.uid}")
 
                     firestore.collection("User")
-                        .document("$currTimeStamp")
+                        .document(it.user!!.uid)
                         .set(userMap)
                         .addOnSuccessListener {
 

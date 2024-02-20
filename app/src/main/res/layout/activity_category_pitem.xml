@@ -41,8 +41,19 @@
 
     </RelativeLayout>
 
+    <ImageView
+        android:id="@+id/imgnotFound"
+        android:padding="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:src="@drawable/productnotfound"/>
+
+
+
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerProduct"
+
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"

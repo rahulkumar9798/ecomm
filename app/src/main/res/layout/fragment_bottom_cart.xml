@@ -22,6 +22,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
+        android:id="@+id/imgEmptyCart"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:background="#ffffff"
@@ -117,6 +118,7 @@
 
 
             <TextView
+                android:id="@+id/txtTotalAmt"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -133,6 +135,7 @@
             android:background="@color/black" />
 
         <Button
+            android:id="@+id/btnCheckOut"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"

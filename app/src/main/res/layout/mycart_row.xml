@@ -35,6 +35,7 @@
                <ImageView
                    android:id="@+id/proimg"
                    android:layout_width="70dp"
+                   android:scaleType="fitXY"
                    android:layout_height="70dp"
                    android:padding="5dp"
                    android:src="@drawable/tshirt"/>
@@ -65,6 +66,7 @@
 
 
                     <ImageView
+                        android:id="@+id/imgDelete"
                         android:layout_width="40dp"
                         android:layout_height="match_parent"
                         android:src="@drawable/delet"/>
@@ -99,6 +101,7 @@
 
 
                         <TextView
+                            android:id="@+id/txtSub"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="-"
@@ -106,6 +109,7 @@
                             android:textSize="40sp"/>
 
                         <TextView
+                            android:id="@+id/txtQty"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="1"
@@ -115,6 +119,7 @@
                             android:textSize="22sp"/>
 
                         <TextView
+                            android:id="@+id/txtAdd"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="+"

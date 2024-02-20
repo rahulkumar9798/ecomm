@@ -2,10 +2,13 @@ package com.example.firebaseecommerce.category
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
+import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.GridLayoutManager
 import com.example.firebaseecommerce.ProductModal
-import com.example.firebaseecommerce.R
 import com.example.firebaseecommerce.databinding.ActivityCategoryPitemBinding
+import com.example.firebaseecommerce.dataremote.AppRepository
+import com.google.firebase.auth.FirebaseAuth
 
 class CategoryPItemActivity : AppCompatActivity() {
     lateinit var binding: ActivityCategoryPitemBinding
@@ -14,20 +17,40 @@ class CategoryPItemActivity : AppCompatActivity() {
         binding = ActivityCategoryPitemBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        val catId = intent.getStringExtra("catId")
 
-        var arrProductList = ArrayList<ProductModal>().apply {
+        val  catByProduct = ViewModelProvider(this,CatViewModelFactory(AppRepository(),catId!!))[CategoryViewModel::class.java]
+        catByProduct.getProductsByCat()
+        catByProduct.mutableProductDataByCat.observe(this@CategoryPItemActivity){
 
-            add(ProductModal(R.drawable.earbut, "wireless HeadPhone", "Rs 500/-"))
-            add(ProductModal(R.drawable.earbut, "wireless HeadPhone", "Rs 500/-"))
-            add(ProductModal(R.drawable.earbut, "wireless HeadPhone", "Rs 500/-"))
-            add(ProductModal(R.drawable.earbut, "wireless HeadPhone", "Rs 500/-"))
-            add(ProductModal(R.drawable.earbut, "wireless HeadPhone", "Rs 500/-"))
-            add(ProductModal(R.drawable.earbut, "wireless HeadPhone", "Rs 500/-"))
+            if(it.size>0) {
+
+                binding.recyclerProduct.visibility = View.VISIBLE
+                binding.imgnotFound.visibility = View.GONE
+
+                binding.recyclerProduct.layoutManager = GridLayoutManager(this@CategoryPItemActivity, 2)
+                binding.recyclerProduct.adapter =
+                    RecyclerProductAdapterbyCategory(this@CategoryPItemActivity, it as ArrayList<ProductModal>)
+
+            }else{
+                binding.recyclerProduct.visibility = View.GONE
+                binding.imgnotFound.visibility = View.VISIBLE
+            }
+
+
 
         }
 
 
-        binding.recyclerProduct.layoutManager = GridLayoutManager(this, 2)
-        binding.recyclerProduct.adapter = RecyclerProductAdpater(this, arrProductList)
+
+
+
+
+    }
+
+
+
+    fun getuserId(): String {
+        return FirebaseAuth.getInstance().currentUser!!.uid
     }
 }

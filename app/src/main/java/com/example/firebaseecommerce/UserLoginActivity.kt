@@ -1,5 +1,6 @@
 package com.example.firebaseecommerce
 
+import android.app.Dialog
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -7,6 +8,7 @@ import android.util.Log
 import android.view.View
 import android.widget.Toast
 import com.example.firebaseecommerce.databinding.ActivityUserLoginBinding
+import com.example.firebaseecommerce.databinding.LoadingBinding
 import com.google.firebase.Firebase
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.auth
@@ -26,6 +28,13 @@ class UserLoginActivity : AppCompatActivity() {
 
         binding.btnLogin.setOnClickListener {
 
+            val dialogAdd= Dialog(this)
+            val dialogBinding = LoadingBinding.inflate(layoutInflater)
+            dialogAdd.setContentView(dialogBinding.root)
+            dialogAdd.setCancelable(false)
+
+
+
             val email = binding.edtEmail.text.toString()
             val pass = binding.edtPassword.text.toString()
 
@@ -33,6 +42,7 @@ class UserLoginActivity : AppCompatActivity() {
 
             firebaseAuth
                 .signInWithEmailAndPassword(email, pass)
+
                 .addOnSuccessListener {
                     Log.d("Success", "Login in successfully...  ${it.user!!.uid}")
 
@@ -50,46 +60,65 @@ class UserLoginActivity : AppCompatActivity() {
                                 val pref = getSharedPreferences("login", MODE_PRIVATE)
                                 pref.edit().putString("uid", "${it.user!!.uid}").apply()
 
-                                binding.progBar.visibility = View.GONE
+                                dialogAdd.dismiss()
+
+                                //binding.progBar.visibility = View.GONE
                                 startActivity(Intent(this, MainActivity::class.java))
+
                                 finish()
+
                             } else {
+
+                                dialogAdd.dismiss()
+                               // binding.progBar.visibility = View.GONE
                                 var statusValue = ""
                                 if (status == 1) {
                                     statusValue = "InActive"
                                 } else if (status == 2) {
-                                    statusValue = "InActive"
+
+                                    statusValue = "Approval Pendding"
                                 } else {
                                     statusValue = "Blocked"
                                 }
 
-                                Toast.makeText(this, "You're in a $statusValue Status", Toast.LENGTH_SHORT).show()
+                                Toast.makeText(this, "You're in a $statusValue", Toast.LENGTH_SHORT).show()
+                                firebaseAuth.signOut()
                             }
 
 
                             //user login after admin  Approval Close #################################################
 
 
-                            // normal login Start$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
-                            //sherePref
-//                    val pref = getSharedPreferences("login", MODE_PRIVATE)
-//                    pref.edit().putString("uid", "${it.user!!.uid}").apply()
+                                // normal login Start$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+                                //sherePref
+//                              val pref = getSharedPreferences("login", MODE_PRIVATE)
+//                              pref.edit().putString("uid", "${it.user!!.uid}").apply()
 //
-//                    binding.progBar.visibility = View.GONE
+//                               binding.progBar.visibility = View.GONE
 //
-//                    startActivity(Intent(this, MainActivity::class.java))
-//                    finish()
-                            // normal login Closet$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+//                               startActivity(Intent(this, MainActivity::class.java))
+//                              finish()
+                             // normal login Closet$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
 
                         }.addOnFailureListener {
+                            dialogAdd.dismiss()
+                            //binding.progBar.visibility = View.GONE
                             Log.d("Failure", "Cant' Log-in ${it.message}")
-                            it.printStackTrace()
-                            binding.progBar.visibility = View.GONE
+                            Toast.makeText(this, "${it.printStackTrace()}", Toast.LENGTH_SHORT).show()
+                            Toast.makeText(this, "${it.message}", Toast.LENGTH_LONG).show()
+                            //it.printStackTrace()
+
                         }
 
                 }
 
+
+
+            dialogAdd.show()
+
+
         }
+
 
         binding.txtSinUp.setOnClickListener {
             startActivity(Intent(this, SignUpActivity::class.java))

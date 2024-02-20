@@ -16,11 +16,12 @@
         android:padding="11dp">
 
         <ImageView
+            android:id="@+id/backNow"
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:background="@drawable/icon_bg_shep"
             android:padding="16dp"
-            android:src="@drawable/backarrow"/>
+            android:src="@drawable/backarrow" />
 
         <ImageView
             android:id="@+id/img_Favourite"
@@ -54,14 +55,17 @@
           android:orientation="vertical">
 
 
-
-          <ImageView
-              android:layout_width="match_parent"
-              android:layout_height="250dp"
-              android:src="@drawable/earbut"
-              android:background="#f5f5f5"/>
+          <com.denzcoskun.imageslider.ImageSlider
+              android:id="@+id/bannerImageSlider"
+              android:layout_width="wrap_content"
+              android:layout_height="300dp"
+              app:iss_auto_cycle="true"
+              app:iss_delay="10000"
+              app:iss_period="1000"
+              app:iss_text_align="CENTER" />
 
           <TextView
+              android:id="@+id/txtProductTitle"
               android:layout_width="wrap_content"
               android:layout_height="wrap_content"
               android:text="Wireless Headphone"
@@ -80,6 +84,7 @@
                   android:orientation="vertical">
 
                   <TextView
+                      android:id="@+id/txtProductDiscountedPrice"
                       android:layout_width="wrap_content"
                       android:layout_height="wrap_content"
                       android:text="Rs 520/-"
@@ -87,11 +92,12 @@
                       android:textSize="24sp"/>
 
                   <TextView
+                      android:id="@+id/txtProductPrice"
                       android:layout_width="wrap_content"
                       android:layout_height="wrap_content"
-                      android:text="Rs 1440/-  50%off"
+                      android:text="Rs 1440/"
                       android:textStyle="bold"
-                      android:textColor="#4A4747"/>
+                      android:textColor="#838993"/>
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -240,12 +246,24 @@
             </LinearLayout>
 
             <Button
+                android:id="@+id/btnproductAdd"
                 android:layout_width="0dp"
                 android:layout_weight="1"
                 android:layout_height="match_parent"
-                android:text="Add to Cart"
+                android:text="Add Product"
                 android:layout_marginLeft="10dp"
-                android:textSize="20dp"
+                android:textSize="16dp"
+                android:backgroundTint="@color/orange"/>
+
+            <Button
+                android:visibility="gone"
+                android:id="@+id/btnGotoCart"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="match_parent"
+                android:text="Go to Cart"
+                android:layout_marginLeft="10dp"
+                android:textSize="16dp"
                 android:backgroundTint="@color/orange"/>
         </LinearLayout>
     </androidx.cardview.widget.CardView>

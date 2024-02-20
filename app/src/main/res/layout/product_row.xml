@@ -5,6 +5,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <androidx.cardview.widget.CardView
+        android:id="@+id/cartProductDetails"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="#3F51B5"
@@ -14,106 +15,126 @@
         app:cardPreventCornerOverlap="true"
         app:cardUseCompatPadding="true">
 
-        <ImageView
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:src="@drawable/heart"
-            android:background="#fd640f"
-            android:padding="7dp"
-            android:layout_gravity="right"/>
-
-        <LinearLayout
+        <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:gravity="center">
-
-
-            <ImageView
-                android:id="@+id/productImg"
-                android:layout_width="130dp"
-                android:layout_height="120dp"
-                android:src="@drawable/earbut"/>
-
-            <TextView
-                android:id="@+id/productName"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="wireless HeadPhone"
-                android:textStyle="bold"/>
+            android:layout_height="wrap_content">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:padding="5dp"
+                android:orientation="vertical"
                 android:gravity="center">
 
+
+                <ImageView
+                    android:id="@+id/productImg"
+                    android:layout_width="match_parent"
+                    android:layout_height="120dp"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/earbut"/>
+
                 <TextView
-                    android:id="@+id/productPrice"
-                    android:layout_width="0dp"
-                    android:layout_weight="0.70"
-                    android:layout_marginRight="5dp"
+                    android:id="@+id/productName"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-
-                    android:text="Rs 500"
-                    android:textStyle="bold"
-                    android:textSize="16sp"/>
-
-
-                <Button
-                    android:layout_width="0dp"
-                    android:layout_weight="1"
-                    android:layout_height="wrap_content"
-                    android:text="Add"
-                    android:textSize="20sp"
-                    android:backgroundTint="#49804B"
-
-                    app:cornerRadius="10dp"/>
+                    android:text="wireless HeadPhone"
+                    android:textStyle="bold"/>
 
                 <LinearLayout
-                    android:visibility="gone"
-                    android:layout_width="0dp"
-                    android:layout_weight="1"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:gravity="center"
-                    android:background="@drawable/addcountshep">
-
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="-"
-                        android:textStyle="bold"
-                        android:layout_marginRight="10dp"
-                        android:textSize="40sp"/>
+                    android:orientation="horizontal"
+                    android:padding="5dp"
+                    android:gravity="center">
 
                     <TextView
-                        android:layout_width="wrap_content"
+                        android:id="@+id/productPrice"
+                        android:layout_width="0dp"
+                        android:layout_weight="0.70"
+                        android:layout_marginRight="5dp"
                         android:layout_height="wrap_content"
-                        android:text="1"
+                        android:text="Rs 500"
                         android:textStyle="bold"
-                        android:layout_marginRight="10dp"
-                        android:textSize="22sp"/>
+                        android:layout_marginLeft="5dp"
+                        android:textSize="12sp"/>
 
-                    <TextView
-                        android:layout_width="wrap_content"
+
+                    <Button
+                        android:id="@+id/btnAdd"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
                         android:layout_height="wrap_content"
-                        android:text="+"
-                        android:textStyle="bold"
-                        android:textSize="25sp"/>
+                        android:text="Add"
+                        android:textSize="20sp"
+                        android:backgroundTint="#49804B"
+                        app:cornerRadius="10dp"/>
+
+                    <Button
+                        android:id="@+id/btnGotoCart"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="wrap_content"
+                        android:text="Go Cart"
+                        android:backgroundTint="#49804B"
+                        android:visibility="gone"
+                        app:cornerRadius="10dp"/>
+
+                    <LinearLayout
+                        android:visibility="gone"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:background="@drawable/addcountshep">
+
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="-"
+                            android:textStyle="bold"
+                            android:layout_marginRight="10dp"
+                            android:textSize="40sp"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="1"
+                            android:textStyle="bold"
+                            android:layout_marginRight="10dp"
+                            android:textSize="22sp"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="+"
+                            android:textStyle="bold"
+                            android:textSize="25sp"/>
+
+
+
+                    </LinearLayout>
+
 
 
 
                 </LinearLayout>
 
 
-
-
             </LinearLayout>
 
+            <ImageView
+                android:layout_alignParentEnd="true"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:src="@drawable/heart"
+                android:background="#fd640f"
+                android:padding="7dp"
+                android:layout_gravity="right"/>
 
-        </LinearLayout>
+        </RelativeLayout>
+
+
 
 
 

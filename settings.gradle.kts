@@ -3,6 +3,9 @@ pluginManagement {
         google()
         mavenCentral()
         gradlePluginPortal()
+        //for slider
+        jcenter()
+        maven  ("https://jitpack.io")
     }
 }
 dependencyResolutionManagement {
@@ -10,9 +13,11 @@ dependencyResolutionManagement {
     repositories {
         google()
         mavenCentral()
+        //for slider
+        jcenter()
+        maven  ("https://jitpack.io")
     }
 }
 
 rootProject.name = "FireBaseEcommerce"
 include(":app")
- 
